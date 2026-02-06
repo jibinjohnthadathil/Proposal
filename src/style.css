@@ -1,0 +1,124 @@
+/* Body & background */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #000; /* black background */
+  overflow: hidden;
+  color: #000; /* default text color for off-white card */
+}
+
+/* Card style */
+.card {
+  background: #f9f9f9; /* off-white card */
+  padding: 50px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3); /* dark shadow for contrast */
+  transform: scale(0); /* start hidden for pop-in */
+  opacity: 0;
+  animation: popIn 0.8s forwards; /* pop-in effect on load */
+}
+
+/* Pop-in animation for card */
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Titles and paragraph */
+h1 {
+  font-size: 3rem;
+  color: #ff4d6d; /* pink-red title */
+  margin-bottom: 20px;
+  animation: bounce 1s infinite alternate; /* small bounce for fun */
+}
+
+/* Bounce for title */
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-10px); }
+}
+
+p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Buttons style */
+button {
+  font-size: 1.2rem;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 10px;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.3s ease;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Different button colors */
+#yes { background: #ff4d6d; } /* pink-red */
+#no { background: #4d79ff; }  /* blue */
+#offer { background: #00c853; color: #fff; } /* bright green */
+
+/* Hover effect */
+button:hover {
+  transform: scale(1.1) translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Fade out / sparkle effect for Redeem button after click */
+button.redeemed {
+  animation: fadeOut 0.5s forwards;
+}
+
+/* Offer message */
+#offerMsg {
+  font-size: 1.5rem;
+  color: #ff4d6d;
+  margin-top: 20px;
+}
+
+/* Floating card animation */
+@keyframes float {
+  50% { transform: translateY(-10px); }
+}
+
+/* Hearts animation */
+.hearts span {
+  position: absolute;
+  bottom: -20px;
+  font-size: 30px; /* bigger hearts */
+  color: #ff0000; /* pure red */
+  animation: rise 6s linear infinite;
+  opacity: 0.9;
+}
+
+@keyframes rise {
+  0% { transform: translateY(0); opacity: 0; }
+  20% { opacity: 1; }
+  100% { transform: translateY(-100vh); opacity: 0; }
+}
+
+/* Fade out for redeemed button */
+@keyframes fadeOut {
+  0% { opacity: 1; transform: scale(1); }
+  100% { opacity: 0; transform: scale(0); }
+}
